@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using Unosquare.FFME;
 
-namespace UniO_PLayer
+namespace Comp_Player
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
