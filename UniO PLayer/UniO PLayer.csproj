@@ -9,7 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="sharp_pause_white_48dp.png" />
+    <None Remove="sharp_play_arrow_white_48dp.png" />
+    <None Remove="sharp_skip_next_white_48dp.png" />
+    <None Remove="sharp_skip_previous_white_48dp.png" />
+    <None Remove="sharp_stop_white_48dp.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FFME.Windows" Version="4.3.340" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="sharp_pause_white_48dp.png" />
+    <Resource Include="sharp_play_arrow_white_48dp.png" />
+    <Resource Include="sharp_skip_next_white_48dp.png" />
+    <Resource Include="sharp_skip_previous_white_48dp.png" />
+    <Resource Include="sharp_stop_white_48dp.png" />
   </ItemGroup>
 
 </Project>
