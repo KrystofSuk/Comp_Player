@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="sharp_link_off_white_48dp.png" />
+    <None Remove="sharp_link_white_48dp.png" />
     <None Remove="sharp_pause_white_48dp.png" />
     <None Remove="sharp_play_arrow_white_48dp.png" />
     <None Remove="sharp_skip_next_white_48dp.png" />
@@ -21,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="sharp_link_off_white_48dp.png" />
+    <Resource Include="sharp_link_white_48dp.png" />
     <Resource Include="sharp_pause_white_48dp.png" />
     <Resource Include="sharp_play_arrow_white_48dp.png" />
     <Resource Include="sharp_skip_next_white_48dp.png" />

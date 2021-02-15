@@ -271,5 +271,41 @@ namespace UniO_PLayer
         {
             Right_scrub = false;
         }
+
+        private void Un_Sync_Click(object sender, RoutedEventArgs e)
+        {
+            sync = false;
+            Un_Sync.Visibility = Visibility.Hidden;
+            Sync.Visibility = Visibility.Visible;
+
+            Right_Abort.Visibility = Visibility.Visible;
+            Right_Forward.Visibility = Visibility.Visible;
+            Right_Back.Visibility = Visibility.Visible;
+
+            if (MediaRight.IsPlaying)
+            {
+                Right_Play.Visibility = Visibility.Hidden;
+                Right_Pause.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Right_Play.Visibility = Visibility.Visible;
+                Right_Pause.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        private void Sync_Click(object sender, RoutedEventArgs e)
+        {
+            sync = true;
+            Un_Sync.Visibility = Visibility.Visible;
+            Sync.Visibility = Visibility.Hidden;
+
+            Right_Abort.Visibility = Visibility.Hidden;
+            Right_Forward.Visibility = Visibility.Hidden;
+            Right_Back.Visibility = Visibility.Hidden;
+            Right_Play.Visibility = Visibility.Hidden;
+            Right_Pause.Visibility = Visibility.Hidden;
+        }
     }
 }

@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniO_PLayer" xmlns:ffme="clr-namespace:Unosquare.FFME;assembly=ffme.win"
         mc:Ignorable="d"
-        Title="MainWindow" Height="686" Width="1440" KeyDown="Window_KeyDown" WindowState="Maximized" Background="#FF131515">
+        Style="{DynamicResource CustomWindowStyle}" Title="MainWindow" Height="686" Width="1440" KeyDown="Window_KeyDown" WindowState="Maximized" Background="#FF131515" SnapsToDevicePixels="True" >
+
     <Grid Focusable="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="720*"/>
             <ColumnDefinition Width="720*"/>
         </Grid.ColumnDefinitions>
 
-        <ffme:MediaElement x:Name="MediaLeft" Background="#FF131515" UnloadedBehavior="Manual"  AllowDrop="True" Drop="MediaLeft_Drop" ScrubbingEnabled="False" VerticalSyncEnabled="False" LoadedBehavior="Stop" LoopingBehavior="Stop" Margin="0,0,0,71" IsTabStop="False" />
-        <ffme:MediaElement x:Name="MediaRight" Background="#FF131515" LoadedBehavior="Stop" UnloadedBehavior="Manual"  AllowDrop="True" Drop="MediaRight_Drop" Grid.Column="1" ScrubbingEnabled="False" VerticalSyncEnabled="False" LoopingBehavior="Stop" Margin="0,0,0,71" IsTabStop="False" />
+        <ffme:MediaElement x:Name="MediaLeft" UnloadedBehavior="Manual"  AllowDrop="True" Drop="MediaLeft_Drop" ScrubbingEnabled="False" VerticalSyncEnabled="False" LoadedBehavior="Stop" LoopingBehavior="Stop" Margin="0,0,0,71" IsTabStop="False" Background="#FF0E1010" />
+        <ffme:MediaElement x:Name="MediaRight" Background="#FF0E1010" LoadedBehavior="Stop" UnloadedBehavior="Manual"  AllowDrop="True" Drop="MediaRight_Drop" Grid.Column="1" ScrubbingEnabled="False" VerticalSyncEnabled="False" LoopingBehavior="Stop" Margin="0,0,0,71" IsTabStop="False" />
         <Label x:Name="Left_Time" Content="00:00 (0)" HorizontalAlignment="Left" Height="28" Margin="10,0,0,38" VerticalAlignment="Bottom" Width="150" FontFamily="Source Code Pro Medium" Background="{x:Null}" Foreground="#FF7DE2D1" FontSize="14" IsTabStop="False"/>
-        <Label x:Name="Right_Time" Content="00:00 (0)" HorizontalAlignment="Left" Height="28" Margin="10,0,0,38" VerticalAlignment="Bottom" Width="150" Grid.Column="1" HorizontalContentAlignment="Left" FontFamily="Source Code Pro Medium" Background="{x:Null}" Foreground="#FF7DE2D1" FontSize="14" IsTabStop="False"/>
-        <Label x:Name="StatusLabel" Content="In Sync" HorizontalAlignment="Right" Height="48" Margin="0,10,10,0" VerticalAlignment="Top" Width="161" FontSize="10" HorizontalContentAlignment="Right" Grid.Column="1" FontFamily="Source Code Pro Medium" Background="{x:Null}" Foreground="#FF7DE2D1" IsTabStop="False"/>
+        <Label x:Name="Right_Time" Content="00:00 (0)" HorizontalAlignment="Left" Height="28" Margin="40,0,0,38" VerticalAlignment="Bottom" Width="120" Grid.Column="1" HorizontalContentAlignment="Left" FontFamily="Source Code Pro Medium" FontSize="14" IsTabStop="False" Background="{x:Null}" Foreground="#FF7DE2D1"/>
+        <Label x:Name="StatusLabel" Content="In Sync" HorizontalAlignment="Right" Height="48" Margin="0,10,10,0" VerticalAlignment="Top" Width="161" FontSize="10" HorizontalContentAlignment="Right" Grid.Column="1" FontFamily="Source Code Pro Medium" Background="{x:Null}" Foreground="#FF7DE2D1" IsTabStop="False" FontStyle="Normal" Style="{x:Null}"/>
         <GridSplitter HorizontalAlignment="Center" Margin="0,10,0,10" VerticalAlignment="Stretch" Width="1" Background="#FF131515" Grid.ColumnSpan="2" Grid.Column="0" VerticalContentAlignment="Stretch" IsTabStop="False" Focusable="False"/>
-        <GridSplitter HorizontalAlignment="Stretch" Margin="0,10,0,71" VerticalAlignment="Bottom" Background="#FF2B2C28" Grid.ColumnSpan="2" Grid.Column="0" VerticalContentAlignment="Stretch" Height="1" IsTabStop="False" Focusable="False"/>
+        <GridSplitter HorizontalAlignment="Stretch" Margin="0,10,0,71" VerticalAlignment="Bottom" Background="#FF2B2C28" Grid.ColumnSpan="2" Grid.Column="0" VerticalContentAlignment="Stretch" Height="1" IsTabStop="False" Focusable="False" Visibility="Hidden"/>
         <Button x:Name="Left_Play" HorizontalAlignment="Left" Height="23" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Click="Left_Play_Click" IsTabStop="False" Focusable="False">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_play_arrow_white_48dp.png"/>
@@ -39,37 +40,57 @@
                 <ImageBrush ImageSource="/sharp_skip_next_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <Button x:Name="Right_Play" HorizontalAlignment="Left" Height="23" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Play_Click" IsTabStop="False" Focusable="False">
+        <Button x:Name="Right_Play" HorizontalAlignment="Left" Height="23" Margin="40,0,0,10" VerticalAlignment="Bottom" Width="22" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Play_Click" IsTabStop="False" Focusable="False">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_play_arrow_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <Button x:Name="Right_Abort" HorizontalAlignment="Left" Height="23" Margin="38,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Abort_Click" IsTabStop="False" Focusable="False">
+        <Button x:Name="Right_Abort" HorizontalAlignment="Left" Height="23" Margin="68,0,0,10" VerticalAlignment="Bottom" Width="22" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Abort_Click" IsTabStop="False" Focusable="False">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_stop_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <Button x:Name="Right_Back" HorizontalAlignment="Left" Height="23" Margin="66,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Back_Click" IsTabStop="False" Focusable="False">
+        <Button x:Name="Right_Back" HorizontalAlignment="Left" Height="23" Margin="96,0,0,10" VerticalAlignment="Bottom" Width="22" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Back_Click" IsTabStop="False" Focusable="False">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_skip_previous_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <Button x:Name="Right_Forward" HorizontalAlignment="Left" Height="23" Margin="94,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Forward_Click" IsTabStop="False" Focusable="False">
+        <Button x:Name="Right_Forward" HorizontalAlignment="Left" Height="23" Margin="124,0,0,10" VerticalAlignment="Bottom" Width="22" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" Click="Right_Forward_Click" IsTabStop="False" Focusable="False">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_skip_next_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <ProgressBar x:Name="Left_Progress" Height="5" Margin="165,0,10,49" VerticalAlignment="Bottom" Value="0.5" Foreground="#FF7DE2D1" BorderBrush="#FF2B2C28" Background="#FF2B2C28" IsTabStop="False" MouseDown="Left_Progress_MouseDown" Maximum="1" MouseUp="Left_Progress_MouseUp" MouseLeave="Left_Progress_MouseLeave" MouseMove="Left_Progress_MouseMove"/>
-        <ProgressBar x:Name="Right_Progress" Height="5" Margin="165,0,10,49" VerticalAlignment="Bottom" Value="0.5" Foreground="#FF7DE2D1" BorderBrush="#FF2B2C28" Background="#FF2B2C28" Grid.Column="1" IsTabStop="False" Maximum="1" MouseDown="Right_Progress_MouseDown" MouseUp="Right_Progress_MouseUp" MouseLeave="Right_Progress_MouseLeave" MouseMove="Right_Progress_MouseMove"/>
-        <Button x:Name="Left_Pause" HorizontalAlignment="Left" Height="23" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" IsTabStop="False" Focusable="False" Visibility="Hidden" Click="Left_Pause_Click">
+        <ProgressBar x:Name="Left_Progress" Height="20" Margin="165,0,50,41.5" VerticalAlignment="Bottom" Value="0.5" Foreground="#FF7DE2D1" BorderBrush="{x:Null}" Background="#FF2B2C28" IsTabStop="False" MouseDown="Left_Progress_MouseDown" Maximum="1" MouseUp="Left_Progress_MouseUp" MouseLeave="Left_Progress_MouseLeave" MouseMove="Left_Progress_MouseMove" BorderThickness="1,1,1,1"/>
+        <ProgressBar x:Name="Right_Progress" Height="20" Margin="165,0,50,41.5" VerticalAlignment="Bottom" Value="0.5" Foreground="#FF7DE2D1" BorderBrush="{x:Null}" Background="#FF2B2C28" Grid.Column="1" IsTabStop="False" Maximum="1" MouseDown="Right_Progress_MouseDown" MouseUp="Right_Progress_MouseUp" MouseLeave="Right_Progress_MouseLeave" MouseMove="Right_Progress_MouseMove"/>
+        <Button x:Name="Left_Pause" HorizontalAlignment="Left" Height="23" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FF7DE2D1" IsTabStop="False" Focusable="False" Visibility="Hidden" Click="Left_Pause_Click">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_pause_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
-        <Button x:Name="Right_Pause" HorizontalAlignment="Left" Height="23" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FFE0E0E0" Grid.Column="1" IsTabStop="False" Focusable="False" Click="Right_Pause_Click" Visibility="Hidden">
+        <Button x:Name="Right_Pause" HorizontalAlignment="Left" Height="23" Margin="40,0,0,10" VerticalAlignment="Bottom" Width="23" BorderBrush="{x:Null}" Background="#FF7DE2D1" Grid.Column="1" IsTabStop="False" Focusable="False" Click="Right_Pause_Click" Visibility="Hidden">
             <Button.OpacityMask>
                 <ImageBrush ImageSource="/sharp_pause_white_48dp.png"/>
             </Button.OpacityMask>
         </Button>
+        <Button x:Name="Sync" HorizontalAlignment="Center" Height="37" VerticalAlignment="Bottom" Width="36" BorderBrush="{x:Null}" Background="#FF676765" Click="Sync_Click" IsTabStop="False" Focusable="False" Grid.ColumnSpan="2" Margin="0,0,0,16">
+            <Button.Effect>
+                <DropShadowEffect Color="#4C000000" BlurRadius="3" Opacity="1" Direction="270" ShadowDepth="1" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/sharp_link_off_white_48dp.png"/>
+            </Button.OpacityMask>
+        </Button>
+        <Button x:Name="Un_Sync" HorizontalAlignment="Center" Height="37" VerticalAlignment="Bottom" Width="36" BorderBrush="{x:Null}" Background="#FF7DE2D1" IsTabStop="False" Focusable="False" Grid.ColumnSpan="2" Margin="0,0,0,16" Visibility="Hidden" Click="Un_Sync_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#4C000000" BlurRadius="3" Opacity="1" Direction="270" ShadowDepth="1" RenderingBias="Quality"/>
+            </Button.Effect>
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="/sharp_link_white_48dp.png"/>
+            </Button.OpacityMask>
+        </Button>
+        <Rectangle HorizontalAlignment="Stretch" Height="12" Margin="165,0,50,54" VerticalAlignment="Bottom" Fill="#FF131515" IsHitTestVisible="False"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="12" Margin="160,0,50,54" VerticalAlignment="Bottom" Fill="#FF131515" IsHitTestVisible="False" Grid.Column="1"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="12" Margin="165,0,50,37" VerticalAlignment="Bottom" Fill="#FF131515" IsHitTestVisible="False"/>
+        <Rectangle HorizontalAlignment="Stretch" Height="12" Margin="160,0,50,37" VerticalAlignment="Bottom" Fill="#FF131515" IsHitTestVisible="False" Grid.Column="1"/>
     </Grid>
 </Window>
